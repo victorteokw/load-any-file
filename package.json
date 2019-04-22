@@ -1,0 +1,19 @@
+{
+  "name": "load-it",
+  "version": "1.0.0",
+  "description": "Load any file in any format.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangkaiyulw/load-it.git"
+  },
+  "author": "Zhang Kai Yu <yeannylam@gmail.com> (http://www.cheunghoiyu.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zhangkaiyulw/load-it/issues"
+  },
+  "homepage": "https://github.com/zhangkaiyulw/load-it#readme"
+}
