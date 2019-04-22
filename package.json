@@ -9,8 +9,9 @@
     "lib/**/*.js"
   ],
   "scripts": {
-    "test": "jest",
-    "test-cov": "jest --coverage"
+    "test": "mocha --recursive \"./tests/**/test.js\"",
+    "test-cov": "nyc --reporter=text mocha --recursive \"./tests/**/test.js\"",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -23,9 +24,15 @@
   },
   "homepage": "https://github.com/zhangkaiyulw/load-it#readme",
   "devDependencies": {
+    "coffeescript": "^2.4.1",
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-man": "^1.0.4",
-    "eslint-plugin-jest": "^22.4.1",
-    "jest": "^24.7.1"
+    "eslint-plugin-mocha": "^5.3.0",
+    "js-yaml": "^3.13.1",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.4"
   }
 }
