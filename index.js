@@ -1,12 +1,14 @@
 const path = require('path');
 const fs = require('fs');
+const getCallerFilename = require('./lib/getCallerFilename');
 const matchExt = require('./lib/matchExt');
 const loaders = require('./lib/loaders');
 
 const loadIt = (location) => {
+  const callerFile = getCallerFilename();
   const requirerDirectory =
-    module.parent.filename ?
-      path.dirname(module.parent.filename) :
+    path.resolve(callerFile) === callerFile ?
+      path.dirname(callerFile) :
       process.cwd();
   let finalPath = path.resolve(requirerDirectory, location);
   if (path.extname(finalPath) === '') {
