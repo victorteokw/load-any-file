@@ -3,6 +3,7 @@ const fs = require('fs');
 const getCallerFilename = require('./lib/getCallerFilename');
 const matchExt = require('./lib/matchExt');
 const loaders = require('./lib/loaders');
+const LoadItError = require('./lib/LoadItError');
 
 const loadIt = (location) => {
   const callerFile = getCallerFilename();
@@ -14,13 +15,13 @@ const loadIt = (location) => {
   if (path.extname(finalPath) === '') {
     finalPath = matchExt(finalPath);
   }
-  if (!fs.existsSync(finalPath)) {
-    throw new Error(`Cannot find file '${finalPath}'.`);
+  if (!fs.existsSync(finalPath) || fs.lstatSync(finalPath).isDirectory()) {
+    throw new LoadItError(`Cannot find file '${finalPath}'.`);
   }
   const ext = path.extname(finalPath).substr(1);
   const loader = loaders[ext];
   if (!loader) {
-    throw new Error(`Unsupported file type '.${ext}'`);
+    throw new LoadItError(`Unsupported file type '.${ext}'.`);
   }
   return loader(finalPath);
 };
