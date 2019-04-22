@@ -4,7 +4,8 @@
   "description": "Load any file in any format.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-cov": "jest --coverage"
   },
   "repository": {
     "type": "git",
