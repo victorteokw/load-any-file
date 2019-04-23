@@ -27,6 +27,14 @@ npm i load-any-file -s
 
 ## Usage
 
+```js
+const loadFile = require('load-any-file');
+```
+
+```ts
+import loadFile from 'load-any-file';
+```
+
 Load Any File supports a wide variety of formats.
 
 ```
