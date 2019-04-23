@@ -53,4 +53,12 @@ describe('Throws error: ', function() {
     );
   });
 
+  it('if type of file with no extension cannot be recognized', function() {
+    assert.throws(
+      () => loadIt('./iniconf'),
+      LoadItError,
+      /File type of .+\/iniconf' unrecognized\./
+    );
+  });
+
 });
