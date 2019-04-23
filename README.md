@@ -27,10 +27,11 @@ npm i load-any-file -s
 
 ## Usage
 
+To load this package, for javaScript:
 ```js
 const loadFile = require('load-any-file');
 ```
-
+For TypeScript:
 ```ts
 import loadFile from 'load-any-file';
 ```
