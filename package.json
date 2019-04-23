@@ -1,7 +1,7 @@
 {
   "name": "load-it",
   "version": "1.0.0",
-  "description": "Load any file in any format.",
+  "description": "Load any file you want to load in any format.",
   "main": "index.js",
   "files": [
     "index.js",

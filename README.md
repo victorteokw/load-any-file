@@ -7,17 +7,17 @@
 [![License][license-image]][license-url]
 [![PR Welcome][pr-image]][pr-url]
 
-Load any file in any format.
+Load any file you want to load in any format.
 
-## Design
+## Design Philosophy
 
 The design philosophy behind this package is allowing developer to use any
-language he/she prefered to write configuration files.
+language he/she preferred to write configuration files.
 
-And this utility is mean to be used by packages that requires configuration
+And this utility is mean to be used by packages that require configuration
 files.
 
-Do not use this for loading program files.
+It's not recommended to use this for loading program files.
 
 ## Installation
 
@@ -27,17 +27,73 @@ npm i load-it -s
 
 ## Usage
 
+Load It supports a wide variety of formats.
+
 ``` js
-const config = loadIt('./config.cson');
-const config = loadIt('./config.json');
-const config = loadIt('./config.ts');
-const config = loadIt('./config.js');
-const config = loadIt('./config.yaml');
+const myJsonModule = loadIt('./aries.json');
+const myJsModule = loadIt('./taurus.js');
+const myTsModule = loadIt('./gemini.ts');
+const myCsonModule = loadIt('./leo.cson');
+const myCoffeeModule = loadIt('./virgo.coffee');
+const myYamlModule = loadIt('./libra.yaml');
+```
+
+Most of times, you don't need to specify the extension. Having Load It figure
+out the extension and format for you.
+
+```
+/foo
+├── .babelrc.json
+├── package.json
+└── server.js
+```
+
+```js
+const babelConfig = loadIt('./.babelrc'); // resolves to the json config
+```
+
+```
+/foo
+├── .babelrc.yaml
+├── package.json
+└── server.js
+```
+
+```js
+const babelConfig = loadIt('./.babelrc'); // resolves to the yaml config
+```
+
+If a directory with the name user specified exists, Load It tries to load the
+index file.
+
+```
+/foo
+└── myModule
+    └── index.ts
+```
+
+```js
+const babelConfig = loadIt('./myModule'); // resolves to 'myModule/index.ts'
+```
+
+If a file exist but without extension, Load It treat it as a data file. This
+means, Load It tries to load it as 'json', 'cson' or 'yaml'. If cannot be parsed
+by any parser, it throws an error. This enables configuration files without
+extension to be written in any format.
+
+```
+/foo
+└── .eslintrc
+```
+
+```js
+// figure out the file type and load it
+const babelConfig = loadIt('./.eslintrc');
 ```
 
 ## API
 
-### loadIt(location)
+### function loadIt(location: string): any
 
 Returns the module exported by the file.
 
