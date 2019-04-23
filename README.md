@@ -29,6 +29,16 @@ npm i load-it -s
 
 Load It supports a wide variety of formats.
 
+```
+/foo
+├── aries.json
+├── taurus.js
+├── gemini.ts
+├── leo.cson
+├── virgo.coffee
+└── libra.yaml
+```
+
 ``` js
 const myJsonModule = loadIt('./aries.json');
 const myJsModule = loadIt('./taurus.js');
@@ -76,10 +86,10 @@ index file.
 const babelConfig = loadIt('./myModule'); // resolves to 'myModule/index.ts'
 ```
 
-If a file exist but without extension, Load It treat it as a data file. This
-means, Load It tries to load it as 'json', 'cson' or 'yaml'. If cannot be parsed
-by any parser, it throws an error. This enables configuration files without
-extension to be written in any format.
+If a file exists but without extension, Load It treats it as a data file. This
+means, Load It tries to load it as 'json', 'cson' or 'yaml'. If it can't be
+parsed by any parser, it throws an error. This enables configuration files
+without extension to be written in any format.
 
 ```
 /foo
@@ -93,7 +103,7 @@ const babelConfig = loadIt('./.eslintrc');
 
 ## API
 
-### function loadIt(location: string): any
+### declare function loadIt(location: string): any;
 
 Returns the module exported by the file.
 
