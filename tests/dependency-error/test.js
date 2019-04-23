@@ -1,7 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const assert = require('assert');
+const { assert } = require('chai');
 const loadIt = require('../../index');
+const LoadItError = require('../../lib/LoadItError');
 
 const alterDependency = (name) => {
   return () => {
@@ -24,10 +25,8 @@ describe('Throws dependency missing error: ', function() {
     it('typescript is not installed but ts-node is installed', function() {
       assert.throws(
         () => loadIt(path.join(__dirname, './config.ts')),
-        {
-          name: 'LoadItError',
-          message: "Dependency missing. Please install 'typescript'."
-        }
+        LoadItError,
+        "Dependency missing. Please install 'typescript'."
       );
     });
   });
@@ -37,10 +36,8 @@ describe('Throws dependency missing error: ', function() {
     it('ts-node is not installed but typescript is installed', function() {
       assert.throws(
         () => loadIt(path.join(__dirname, './config2.ts')),
-        {
-          name: 'LoadItError',
-          message: "Dependency missing. Please install 'ts-node'."
-        }
+        LoadItError,
+        "Dependency missing. Please install 'ts-node'."
       );
     });
   });
@@ -50,10 +47,8 @@ describe('Throws dependency missing error: ', function() {
     it('coffeescript is not installed', function() {
       assert.throws(
         () => loadIt(path.join(__dirname, './config.cson')),
-        {
-          name: 'LoadItError',
-          message: "Dependency missing. Please install 'coffeescript'."
-        }
+        LoadItError,
+        "Dependency missing. Please install 'coffeescript'."
       );
     });
   });
@@ -63,10 +58,8 @@ describe('Throws dependency missing error: ', function() {
     it('coffeescript is not installed', function() {
       assert.throws(
         () => loadIt(path.join(__dirname, './config.coffee')),
-        {
-          name: 'LoadItError',
-          message: "Dependency missing. Please install 'coffeescript'."
-        }
+        LoadItError,
+        "Dependency missing. Please install 'coffeescript'."
       );
     });
   });
@@ -76,10 +69,8 @@ describe('Throws dependency missing error: ', function() {
     it('js-yaml is not installed', function() {
       assert.throws(
         () => loadIt(path.join(__dirname, './config.yaml')),
-        {
-          name: 'LoadItError',
-          message: "Dependency missing. Please install 'js-yaml'."
-        }
+        LoadItError,
+        "Dependency missing. Please install 'js-yaml'."
       );
     });
   });

@@ -1,4 +1,4 @@
-const assert = require('assert');
+const { assert } = require('chai');
 const loadIt = require('../../index');
 
 describe('Support file type: ', function() {

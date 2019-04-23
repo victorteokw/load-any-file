@@ -1,5 +1,5 @@
 const path = require('path');
-const assert = require('assert');
+const { assert } = require('chai');
 const loadIt = require('../../index');
 
 describe('Resolve filename: ', function() {
