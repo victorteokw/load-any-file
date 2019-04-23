@@ -17,7 +17,7 @@
     "type": "git",
     "url": "git+https://github.com/zhangkaiyulw/load-it.git"
   },
-  "author": "Zhang Kai Yu <yeannylam@gmail.com> (http://www.cheunghoiyu.com/)",
+  "author": "Zhang Kai Yu <yeannylam@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/zhangkaiyulw/load-it/issues"
