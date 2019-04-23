@@ -1,0 +1,3 @@
+export = {
+  val: 'ue'
+}
