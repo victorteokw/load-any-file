@@ -67,4 +67,13 @@ describe('Resolve filename: ', function() {
     );
   });
 
+  it('resolve to file first if same name dir exist', function() {
+    assert.deepEqual(
+      loadIt('./aquarius'),
+      {
+        'here': 'right'
+      }
+    );
+  });
+
 });

@@ -41,7 +41,7 @@ describe('Throws error: ', function() {
     assert.throws(
       () => loadIt('./aries'),
       LoadItError,
-      /Cannot find file '.+\/aries\/index'\./
+      /Cannot find file '.+\/aries'\./
     );
   });
 
