@@ -1,4 +1,4 @@
-# Load It!
+# Load Any File!
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][cov-image]][cov-url]
@@ -22,12 +22,12 @@ It's not recommended to use this for loading program files.
 ## Installation
 
 ```bash
-npm i load-it -s
+npm i load-any-file -s
 ```
 
 ## Usage
 
-Load It supports a wide variety of formats.
+Load Any File supports a wide variety of formats.
 
 ```
 /foo
@@ -40,16 +40,16 @@ Load It supports a wide variety of formats.
 ```
 
 ``` js
-const myJsonModule = loadIt('./aries.json');
-const myJsModule = loadIt('./taurus.js');
-const myTsModule = loadIt('./gemini.ts');
-const myCsonModule = loadIt('./leo.cson');
-const myCoffeeModule = loadIt('./virgo.coffee');
-const myYamlModule = loadIt('./libra.yaml');
+const myJsonModule = loadFile('./aries.json');
+const myJsModule = loadFile('./taurus.js');
+const myTsModule = loadFile('./gemini.ts');
+const myCsonModule = loadFile('./leo.cson');
+const myCoffeeModule = loadFile('./virgo.coffee');
+const myYamlModule = loadFile('./libra.yaml');
 ```
 
-Most of times, you don't need to specify the extension. Having Load It figure
-out the extension and format for you.
+Most of times, you don't need to specify the extension. Having Load Any File
+figure out the extension and format for you.
 
 ```
 /foo
@@ -59,7 +59,7 @@ out the extension and format for you.
 ```
 
 ```js
-const babelConfig = loadIt('./.babelrc'); // resolves to the json config
+const babelConfig = loadFile('./.babelrc'); // resolves to the json config
 ```
 
 ```
@@ -70,11 +70,11 @@ const babelConfig = loadIt('./.babelrc'); // resolves to the json config
 ```
 
 ```js
-const babelConfig = loadIt('./.babelrc'); // resolves to the yaml config
+const babelConfig = loadFile('./.babelrc'); // resolves to the yaml config
 ```
 
-If a directory with the name user specified exists, Load It tries to load the
-index file.
+If a directory with the name user specified exists, Load Any File tries to load
+the index file.
 
 ```
 /foo
@@ -83,13 +83,13 @@ index file.
 ```
 
 ```js
-const babelConfig = loadIt('./myModule'); // resolves to 'myModule/index.ts'
+const babelConfig = loadFile('./myModule'); // resolves to 'myModule/index.ts'
 ```
 
-If a file exists but without extension, Load It treats it as a data file. This
-means, Load It tries to load it as 'json', 'cson' or 'yaml'. If it can't be
-parsed by any parser, it throws an error. This enables configuration files
-without extension to be written in any format.
+If a file exists but without extension, Load Any File treats it as a data file.
+This means, Load Any File tries to load it as 'json', 'cson' or 'yaml'. If it
+can't be parsed by any parser, it throws an error. This enables configuration
+files without extension to be written in any format.
 
 ```
 /foo
@@ -98,12 +98,12 @@ without extension to be written in any format.
 
 ```js
 // figure out the file type and load it
-const babelConfig = loadIt('./.eslintrc');
+const babelConfig = loadFile('./.eslintrc');
 ```
 
 ## API
 
-### declare function loadIt(location: string): any;
+### declare function loadFile(location: string): any;
 
 Returns the module exported by the file.
 
@@ -111,17 +111,17 @@ Returns the module exported by the file.
 
 MIT © [Zhang Kai Yu][license-url]
 
-[npm-image]: https://badge.fury.io/js/load-it.svg
-[npm-url]: https://npmjs.org/package/load-it
-[travis-image]: https://travis-ci.org/zhangkaiyulw/load-it.svg?branch=master
-[travis-url]: https://travis-ci.org/zhangkaiyulw/load-it
-[cov-image]: https://codecov.io/gh/zhangkaiyulw/load-it/branch/master/graph/badge.svg
-[cov-url]: https://codecov.io/gh/zhangkaiyulw/load-it
-[daviddm-image]: https://david-dm.org/zhangkaiyulw/load-it.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/zhangkaiyulw/load-it
-[daviddm-image-dev]: https://david-dm.org/zhangkaiyulw/load-it/dev-status.svg
-[daviddm-url-dev]: https://david-dm.org/zhangkaiyulw/load-it?type=dev
-[license-image]: https://img.shields.io/github/license/zhangkaiyulw/load-it.svg
-[license-url]: https://github.com/zhangkaiyulw/load-it/blob/master/LICENSE
+[npm-image]: https://badge.fury.io/js/load-any-file.svg
+[npm-url]: https://npmjs.org/package/load-any-file
+[travis-image]: https://travis-ci.org/zhangkaiyulw/load-any-file.svg?branch=master
+[travis-url]: https://travis-ci.org/zhangkaiyulw/load-any-file
+[cov-image]: https://codecov.io/gh/zhangkaiyulw/load-any-file/branch/master/graph/badge.svg
+[cov-url]: https://codecov.io/gh/zhangkaiyulw/load-any-file
+[daviddm-image]: https://david-dm.org/zhangkaiyulw/load-any-file.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/zhangkaiyulw/load-any-file
+[daviddm-image-dev]: https://david-dm.org/zhangkaiyulw/load-any-file/dev-status.svg
+[daviddm-url-dev]: https://david-dm.org/zhangkaiyulw/load-any-file?type=dev
+[license-image]: https://img.shields.io/github/license/zhangkaiyulw/load-any-file.svg
+[license-url]: https://github.com/zhangkaiyulw/load-any-file/blob/master/LICENSE
 [pr-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
-[pr-url]: https://github.com/zhangkaiyulw/load-it/blob/master/CONTRIBUTING.md
+[pr-url]: https://github.com/zhangkaiyulw/load-any-file/blob/master/CONTRIBUTING.md

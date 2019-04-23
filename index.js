@@ -3,9 +3,9 @@ const fs = require('fs');
 const getCallerFilename = require('./lib/getCallerFilename');
 const matchExt = require('./lib/matchExt');
 const loaders = require('./lib/loaders');
-const LoadItError = require('./lib/LoadItError');
+const LoadAnyFileError = require('./lib/LoadAnyFileError');
 
-const loadIt = (location) => {
+const loadFile = (location) => {
   const callerFile = getCallerFilename();
   const requirerDirectory =
     path.resolve(callerFile) === callerFile ?
@@ -16,15 +16,15 @@ const loadIt = (location) => {
     finalPath = matchExt(finalPath);
   }
   if (!fs.existsSync(finalPath) || fs.lstatSync(finalPath).isDirectory()) {
-    throw new LoadItError(`Cannot find file '${finalPath}'.`);
+    throw new LoadAnyFileError(`Cannot find file '${finalPath}'.`);
   }
   const ext = path.extname(finalPath).substr(1);
   const loader = loaders[ext];
   if (!loader) {
-    throw new LoadItError(`Unsupported file type '.${ext}'.`);
+    throw new LoadAnyFileError(`Unsupported file type '.${ext}'.`);
   }
   return loader(finalPath);
 };
 
-module.exports = loadIt;
-module.exports.default = loadIt;
+module.exports = loadFile;
+module.exports.default = loadFile;

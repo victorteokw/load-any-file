@@ -1,11 +1,11 @@
 const { assert } = require('chai');
-const loadIt = require('../../index');
+const loadFile = require('../../index');
 
 describe('Support file type: ', function() {
 
   it('json', function() {
     assert.deepEqual(
-      loadIt('./config.json'),
+      loadFile('./config.json'),
       {
         'key': 'value'
       }
@@ -14,7 +14,7 @@ describe('Support file type: ', function() {
 
   it('js', function() {
     assert.deepEqual(
-      loadIt('./config.js'),
+      loadFile('./config.js'),
       {
         'girlfriend': 'requested'
       }
@@ -23,7 +23,7 @@ describe('Support file type: ', function() {
 
   it('ts', function() {
     assert.deepEqual(
-      loadIt('./config.ts'),
+      loadFile('./config.ts'),
       {
         'what': 'ts'
       }
@@ -32,7 +32,7 @@ describe('Support file type: ', function() {
 
   it('cson', function() {
     assert.deepEqual(
-      loadIt('./config.cson'),
+      loadFile('./config.cson'),
       {
         'love': 'you',
         'your': 'heart'
@@ -42,7 +42,7 @@ describe('Support file type: ', function() {
 
   it('coffee', function() {
     assert.deepEqual(
-      loadIt('./config.coffee'),
+      loadFile('./config.coffee'),
       {
         'who': 'love',
         'you': 'me'
@@ -52,7 +52,7 @@ describe('Support file type: ', function() {
 
   it('yaml', function() {
     assert.deepEqual(
-      loadIt('./config.yaml'),
+      loadFile('./config.yaml'),
       {
         'name': 'Ya ML',
         'age': 18
@@ -63,7 +63,7 @@ describe('Support file type: ', function() {
   describe('for file without extension', function() {
     it('loads json', function() {
       assert.deepEqual(
-        loadIt('./noext/json'),
+        loadFile('./noext/json'),
         {
           'you': 'know'
         }
@@ -71,7 +71,7 @@ describe('Support file type: ', function() {
     });
     it('loads cson', function() {
       assert.deepEqual(
-        loadIt('./noext/cson'),
+        loadFile('./noext/cson'),
         {
           'greatOnes': ['you', 'me']
         }
@@ -79,7 +79,7 @@ describe('Support file type: ', function() {
     });
     it('loads yaml', function() {
       assert.deepEqual(
-        loadIt('./noext/yaml'),
+        loadFile('./noext/yaml'),
         {
           'understand': 'right'
         }

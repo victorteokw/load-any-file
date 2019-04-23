@@ -1,12 +1,12 @@
 const path = require('path');
 const { assert } = require('chai');
-const loadIt = require('../../index');
+const loadFile = require('../../index');
 
 describe('Resolve filename: ', function() {
 
   it('relative with . (a dot)', function() {
     assert.deepEqual(
-      loadIt('./config.json'),
+      loadFile('./config.json'),
       {
         'behavior': true
       }
@@ -15,7 +15,7 @@ describe('Resolve filename: ', function() {
 
   it('relative with .. (two dots)', function() {
     assert.deepEqual(
-      loadIt('../imhere.json'),
+      loadFile('../imhere.json'),
       {
         'iam': 'here'
       }
@@ -24,7 +24,7 @@ describe('Resolve filename: ', function() {
 
   it('absolute with extension', function() {
     assert.deepEqual(
-      loadIt(path.join(__dirname, 'heart.cson')),
+      loadFile(path.join(__dirname, 'heart.cson')),
       {
         'love': 'heart'
       }
@@ -33,7 +33,7 @@ describe('Resolve filename: ', function() {
 
   it('absolute without extension', function() {
     assert.deepEqual(
-      loadIt(path.join(__dirname, 'heart')),
+      loadFile(path.join(__dirname, 'heart')),
       {
         'love': 'heart'
       }
@@ -42,7 +42,7 @@ describe('Resolve filename: ', function() {
 
   it('relative without extension', function() {
     assert.deepEqual(
-      loadIt('./heart'),
+      loadFile('./heart'),
       {
         'love': 'heart'
       }
@@ -51,7 +51,7 @@ describe('Resolve filename: ', function() {
 
   it('relative with extension', function() {
     assert.deepEqual(
-      loadIt('./heart.cson'),
+      loadFile('./heart.cson'),
       {
         'love': 'heart'
       }
@@ -60,7 +60,7 @@ describe('Resolve filename: ', function() {
 
   it('index file in the directory', function() {
     assert.deepEqual(
-      loadIt('./sagittarius'),
+      loadFile('./sagittarius'),
       {
         'zodiac': 'sagittarius'
       }
@@ -69,7 +69,7 @@ describe('Resolve filename: ', function() {
 
   it('resolve to file first if same name dir exist', function() {
     assert.deepEqual(
-      loadIt('./aquarius'),
+      loadFile('./aquarius'),
       {
         'here': 'right'
       }
