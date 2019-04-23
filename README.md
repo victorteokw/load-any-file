@@ -116,6 +116,14 @@ const babelConfig = loadFile('./.eslintrc');
 
 Returns the module exported by the file.
 
+## Change Log
+
+- 1.0.1 (2019-04-23)
+  - added documentation for requiring this package
+  - added change log
+- 1.0.0 (2019-04-23)
+  - basic functionality
+
 ## License
 
 MIT © [Zhang Kai Yu][license-url]
