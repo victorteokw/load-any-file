@@ -1,6 +1,6 @@
 {
   "name": "load-any-file",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Load any file you want to load in any format.",
   "main": "index.js",
   "files": [

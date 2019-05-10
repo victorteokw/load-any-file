@@ -112,12 +112,18 @@ const babelConfig = loadFile('./.eslintrc');
 
 ## API
 
-### declare function loadFile(location: string): any;
+### loadFile(location: string): any;
 
 Returns the module exported by the file.
 
+### loadFile.resolve(location: string): string;
+
+Returns the module's file system location.
+
 ## Change Log
 
+- 1.1.0 (2019-05-10)
+  - added loadFile.resolve for returning file location
 - 1.0.1 (2019-04-23)
   - added documentation for requiring this package
   - added change log

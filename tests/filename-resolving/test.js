@@ -4,6 +4,13 @@ const loadFile = require('../../index');
 
 describe('Resolve filename: ', function() {
 
+  it('resolves location with resolve', function() {
+    assert.deepEqual(
+      loadFile.resolve('./config.json'),
+      path.resolve(__dirname, './config.json')
+    );
+  });
+
   it('relative with . (a dot)', function() {
     assert.deepEqual(
       loadFile('./config.json'),
