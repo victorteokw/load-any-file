@@ -42,13 +42,13 @@ describe('Throws dependency missing error: ', function() {
     });
   });
   describe('when requiring cson file', function() {
-    beforeEach(alterDependency('coffeescript'));
-    afterEach(recoverDependency('coffeescript'));
-    it('coffeescript is not installed', function() {
+    beforeEach(alterDependency('cson-parser'));
+    afterEach(recoverDependency('cson-parser'));
+    it('cson-parser is not installed', function() {
       assert.throws(
         () => loadFile(path.join(__dirname, './config.cson')),
         LoadAnyFileError,
-        "Dependency missing. Please install 'coffeescript'."
+        "Dependency missing. Please install 'cson-parser'."
       );
     });
   });

@@ -1,6 +1,6 @@
 {
   "name": "load-any-file",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Load any file you want to load in any format.",
   "main": "index.js",
   "files": [
@@ -27,6 +27,7 @@
     "chai": "^4.2.0",
     "codecov": "^3.3.0",
     "coffeescript": "^2.4.1",
+    "cson-parser": "^4.0.2",
     "eslint": "^5.16.0",
     "eslint-config-man": "^1.0.4",
     "eslint-plugin-mocha": "^5.3.0",
