@@ -1,4 +1,3 @@
-import loadFile = require('load-any-file');
 declare namespace loadFile {
   function resolve(location: string): string;
 }
